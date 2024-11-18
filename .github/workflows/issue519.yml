@@ -15,7 +15,7 @@ jobs:
         with:
            distribution: 'adopt'
            java-version: ${{ matrix.java-version }}
-           check-latest: false
+           check-latest: true
            cache: 'gradle'
            
       - run: ./gradlew build --no-daemon
