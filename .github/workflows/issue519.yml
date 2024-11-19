@@ -13,8 +13,8 @@ jobs:
       - uses: actions/setup-java@v3
         with:
            distribution: 'adopt'
-           java-version: '17.0.8'
-           check-latest: flase
+           java-version: '17.0.8+7'
+           check-latest: true
            cache: 'gradle'
            
       - run: ./gradlew build --no-daemon
