@@ -1,3 +1,8 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
 android {
     namespace 'com.name'
     compileSdk 34
@@ -18,40 +23,45 @@ android {
             }
         }
     }
-    ktlint {
-        android = true
-        ignoreFailures = false
-        disabledRules = ["wildcard-imports", "no-wildcard-imports"]
-        reporters {
-            reporter "plain"
-            reporter "checkstyle"
-            //reporter "sarif"
-            //reporter "html"
-        }
-    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion '1.5.1'
     }
+
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
     }
+
     externalNativeBuild {
         cmake {
             path 'src/main/cpp/CMakeLists.txt'
         }
     }
+
     buildFeatures {
         compose true
-        prefab true // Enable prefab for OpenCV
+        prefab true
+    }
+}
+
+ktlint {
+    android = true
+    ignoreFailures = false
+    disabledRules = ["wildcard-imports", "no-wildcard-imports"]
+    reporters {
+        reporter "plain"
+        reporter "checkstyle"
     }
 }
