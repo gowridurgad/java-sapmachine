@@ -24,4 +24,4 @@ jobs:
       #   run: |
       #     test -n "$GRAALVM_HOME"
       - name: Build with Gradle
-        run: gradle build
+        run: ./gradlew build
