@@ -16,10 +16,12 @@ jobs:
           java-version: '21'
           cache: gradle
 
-      - name: Print env vars
-        run: |
-          echo "JAVA_HOME=$JAVA_HOME"
-          echo "GRAALVM_HOME=$GRAALVM_HOME"
-      - name: Fail if GRAALVM_HOME is missing
-        run: |
-          test -n "$GRAALVM_HOME"
+      # - name: Print env vars
+      #   run: |
+      #     echo "JAVA_HOME=$JAVA_HOME"
+      #     echo "GRAALVM_HOME=$GRAALVM_HOME"
+      # - name: Fail if GRAALVM_HOME is missing
+      #   run: |
+      #     test -n "$GRAALVM_HOME"
+      - name: Build with Gradle
+        run: gradle build
